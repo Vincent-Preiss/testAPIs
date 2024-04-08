@@ -1,0 +1,50 @@
+[
+  {
+    "path": "config/tasks.json",
+    "objectName": "tasks"
+  },
+  {
+    "path": "config/equipments.json",
+    "objectName": "equipments"
+  },
+  {
+    "path": "config/models.json",
+    "objectName": "models"
+  },
+  {
+    "path": "config/aois.json",
+    "objectName": "aois"
+  },
+  {
+    "path": "config/task-aoi-links.json",
+    "objectName": "task-aoi-links"
+  },
+  {
+    "path": "config/task-equipment-links.json",
+    "objectName": "task-equipment-links"
+  },
+  {
+    "path": "config/task-model-settings.json",
+    "objectName": "task-model-settings"
+  },
+  {
+    "path": "results/results.json",
+    "objectName": "results"
+  },
+  {
+    "path": "results/result-aoi-link.json",
+    "objectName": "result-aoi-link"
+  },
+  {
+    "path": "results/result-equipment-link.json",
+    "objectName": "result-equipment-link"
+  },
+  {
+    "path": "results/result-model-link.json",
+    "objectName": "result-model-link"
+  },
+  {
+    "path": "results/result-task-link.json",
+    "objectName": "result-task-link"
+  }
+]
