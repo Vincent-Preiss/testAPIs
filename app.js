@@ -9,7 +9,9 @@ app.use(express.json());
 const config = JSON.parse(fs.readFileSync(`./Routes/routes.json`));
 
 for ({ path, objectName } of config) {
-  objectHandlerFactory(app, path, objectName);
+  const objectRouter = express.Router();
+  app.use(`/api/v1/${objectName}`, objectRouter);
+  objectHandlerFactory(path, objectRouter);
 }
 
 const port = 3000;

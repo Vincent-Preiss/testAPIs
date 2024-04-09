@@ -1,5 +1,5 @@
 const ObjectHandler = require("./ObjectHandler");
-function objectHandlerFactory(app, path, objectName) {
+function objectHandlerFactory(path, objectRouter) {
   let objectHandler = new ObjectHandler(path);
   const createObject = objectHandler.createObject.bind(objectHandler);
   const getAllObjects = objectHandler.getAllObjects.bind(objectHandler);
@@ -7,9 +7,9 @@ function objectHandlerFactory(app, path, objectName) {
   const updateObject = objectHandler.updateObject.bind(objectHandler);
   const deleteObject = objectHandler.deleteObject.bind(objectHandler);
 
-  app.route(`/api/v1/${objectName}`).post(createObject).get(getAllObjects);
-  app
-    .route(`/api/v1/${objectName}/:id`)
+  objectRouter.route("/").post(createObject).get(getAllObjects);
+  objectRouter
+    .route("/:id")
     .get(getSpecificObject)
     .patch(updateObject)
     .delete(deleteObject);
