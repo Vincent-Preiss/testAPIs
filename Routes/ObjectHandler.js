@@ -3,12 +3,27 @@ class ObjectHandler {
   constructor(path) {
     this.path = path;
     this.objects = JSON.parse(fs.readFileSync(`./data/${path}`));
+
+    this.findNewId = () => {
+      let newId = 1;
+      while (true) {
+        let isWorkingId = true;
+        for (let object of this.objects) {
+          if (object.id === newId) {
+            isWorkingId = false;
+          }
+        }
+        if (isWorkingId) {
+          return newId;
+        } else {
+          newId += 1;
+        }
+      }
+    };
   }
 
   createObject(req, res) {
-    const newId = this.objects[this.objects.length - 1]?.id
-      ? this.objects[this.objects.length - 1]?.id + 1
-      : 1;
+    const newId = this.findNewId();
     const newObject = Object.assign({ id: newId }, req.body);
     this.objects.push(newObject);
     return fs.writeFile(
